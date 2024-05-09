@@ -1,6 +1,7 @@
 import os
 from typing import Tuple
 
+import click
 import requests
 from dotenv import load_dotenv
 
@@ -23,7 +24,7 @@ def get_coords_from_location_name(
 
 
 def get_temperature_from_lat_lon(
-    lat: float, lon: float, apikey: str, unit: str = "metric"
+    lat: float, lon: float, apikey: str, unit: str
 ) -> float:
     url = "https://api.openweathermap.org/data/3.0/onecall"
     params = {
@@ -40,5 +41,14 @@ def get_temperature_from_lat_lon(
     return response_json["current"]["temp"]
 
 
-lat, lon = get_coords_from_location_name("Ho Chi Minh,VN", ow_apikey)
-temperature = get_temperature_from_lat_lon(lat, lon, ow_apikey)
+@click.command()
+@click.argument("location")
+@click.option("--unit", default="metric")
+def get_temperature(location, unit):
+    lat, lon = get_coords_from_location_name(location, ow_apikey)
+    temperature = get_temperature_from_lat_lon(lat, lon, ow_apikey, unit=unit)
+    click.echo(temperature)
+
+
+if __name__ == "__main__":
+    get_temperature()
