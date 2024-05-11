@@ -24,7 +24,7 @@ def get_coords_from_location_name(
 
 
 def get_temperature_from_lat_lon(
-    lat: float, lon: float, apikey: str, unit: str
+    lat: float, lon: float, apikey: str, units: str
 ) -> float:
     url = "https://api.openweathermap.org/data/3.0/onecall"
     params = {
@@ -32,7 +32,7 @@ def get_temperature_from_lat_lon(
         "lon": lon,
         "appid": apikey,
         "exclude": "minutely,hourly,daily,alerts",
-        "units": unit,
+        "units": units,
     }
 
     response = requests.get(url, params=params)
@@ -43,10 +43,14 @@ def get_temperature_from_lat_lon(
 
 @click.command()
 @click.argument("location")
-@click.option("--unit", default="metric")
-def get_temperature(location, unit):
+@click.option(
+    "--units",
+    default="metric",
+    type=click.Choice(["standard", "metric", "imperial"], case_sensitive=False),
+)
+def get_temperature(location, units):
     lat, lon = get_coords_from_location_name(location, ow_apikey)
-    temperature = get_temperature_from_lat_lon(lat, lon, ow_apikey, unit=unit)
+    temperature = get_temperature_from_lat_lon(lat, lon, ow_apikey, units=units)
     click.echo(temperature)
 
 
