@@ -1,0 +1,20 @@
+[project]
+name = "gettemperature"
+version = "2024.0.1"
+authors = [{name = "Chau Ngoc Le", email = "playerzawesome@gmail.com"}]
+maintainers = [{name = "Chau Ngoc Le", email = "playerzawesome@gmail.com"}]
+description = "A CLI app that gets current temperature from any city in the world."
+readme = "README.md"
+dependencies = [
+    "click==8.1.7",
+    "requests==2.31.0",
+    "python-dotenv==1.0.1",
+]
+scripts = {get-temperature = "main:get_temperature"}
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]

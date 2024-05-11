@@ -1,7 +1,7 @@
 {
   "_meta": {
     "hash": {
-      "sha256": "24de78a7e643e90e04d626b4ce347331c1dc32d92f3293c7306d79bac67adaf7"
+      "sha256": "f35e2ac942a8aa2be38459cb9bd030d2595666a850387827c5dde6a53f66aae5"
     },
     "pipfile-spec": 6,
     "requires": {
@@ -128,6 +128,10 @@
       "index": "pypi",
       "version": "==8.1.7"
     },
+    "gettemperature": {
+      "editable": true,
+      "path": "."
+    },
     "idna": {
       "hashes": [
         "sha256:028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc",
@@ -243,11 +247,11 @@
     },
     "pre-commit": {
       "hashes": [
-        "sha256:5eae9e10c2b5ac51577c3452ec0a490455c45a0533f7960f993a0d01e59decab",
-        "sha256:e209d61b8acdcf742404408531f0c37d49d2c734fd7cff2d6076083d191cb060"
+        "sha256:8ca3ad567bc78a4972a3f1a477e94a79d4597e8140a6e0b651c5e33899c3654a",
+        "sha256:fae36fd1d7ad7d6a5a1c0b0d5adb2ed1a3bda5a21bf6c3e5372073d7a11cd4c5"
       ],
       "index": "pypi",
-      "version": "==3.7.0"
+      "version": "==3.7.1"
     },
     "pytest": {
       "hashes": [

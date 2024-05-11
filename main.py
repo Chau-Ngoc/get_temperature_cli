@@ -52,7 +52,3 @@ def get_temperature(location, units):
     lat, lon = get_coords_from_location_name(location, ow_apikey)
     temperature = get_temperature_from_lat_lon(lat, lon, ow_apikey, units=units)
     click.echo(temperature)
-
-
-if __name__ == "__main__":
-    get_temperature()
